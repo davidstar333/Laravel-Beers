@@ -6591,7 +6591,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tank-container {\n    width: 17.1%;\n    height: 212px;\n    background-color: #ff8901;\n    display: inline-block;\n    margin: 15px;\n    color: #fff;\n    font-weight: bold;\n    text-align: center;\n    position: relative;\n    font-size: 1.2rem;\n}\n.beer-amount {\n    width: 100%;\n    text-align: center;\n    position: absolute;\n    top: 10px;\n}\n.tank-name {\n    position: absolute;\n    bottom: 90px;\n    width: 100%;\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.tank-container {\n    width: 17.1%;\n    height: 270px;        \n    background: url('/images/tank.png') no-repeat;\n    background-size: cover;\n    display: inline-block;\n    margin: 15px;\n    color: #fff;\n    font-weight: bold;\n    text-align: center;\n    position: relative;\n    font-size: 1.2rem;\n}\n.beer-amount {\n    width: 100%;\n    color: black;\n    text-align: center;\n    position: absolute;\n    top: 10px;\n}\n.tank-name {\n    position: absolute;\n    bottom: 90px;\n    width: 100%;\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -51357,8 +51357,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! G:\beer\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! G:\beer\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\VueJS\Laravel-Beers\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\VueJS\Laravel-Beers\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
