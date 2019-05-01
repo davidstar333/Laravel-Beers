@@ -36,8 +36,9 @@ export default {
 <style>
     .tank-container {
         width: 17.1%;
-        height: 212px;
-        background-color: #ff8901;
+        height: 270px;        
+        background: url('/images/tank.png') no-repeat;
+        background-size: cover;
         display: inline-block;
         margin: 15px;
         color: #fff;
@@ -48,6 +49,7 @@ export default {
     }
     .beer-amount {
         width: 100%;
+        color: black;
         text-align: center;
         position: absolute;
         top: 10px;
