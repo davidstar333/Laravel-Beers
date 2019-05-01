@@ -17,6 +17,11 @@
     background-color: #17a2b7;
     border-color: #17a2b7;
 }
+.btn.btn-custom:hover {
+    color: #fff;
+    background-color: #197280;
+    border-color: #197280;
+}
 #brew_btn {
     margin-left: 15px;
 }
