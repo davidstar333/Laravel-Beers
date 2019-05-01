@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-git clone https://github.com/davidstar333/PDF-Reader.git
+git clone https://github.com/davidstar333/Laravel-Beers.git
 ```
 
 ```
