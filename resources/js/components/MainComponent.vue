@@ -37,10 +37,6 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <label for="brew_amount">Amount</label>
-                                <input type="number" id="brew_amount" v-model="brew_tanks.amount" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label for="brew_target_tank">Tank</label>
                                 <select name="brew_target_tank" id="brew_target_tank" v-model="brew_tanks.tank_id" class="form-control">
                                     <option value="">Choose...</option>
@@ -49,6 +45,10 @@
                                     :value="tank.id"
                                     >{{ tank.name }}</option>
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="brew_amount">Amount</label>
+                                <input type="number" id="brew_amount" v-model="brew_tanks.amount" class="form-control">
                             </div>
                         </div>
                     </div>

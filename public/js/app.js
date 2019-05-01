@@ -38143,34 +38143,6 @@ var render = function() {
             _c("div", { staticClass: "row justify-content-center" }, [
               _c("div", { staticClass: "col-md-10" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "brew_amount" } }, [
-                    _vm._v("Amount")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.brew_tanks.amount,
-                        expression: "brew_tanks.amount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number", id: "brew_amount" },
-                    domProps: { value: _vm.brew_tanks.amount },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.brew_tanks, "amount", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "brew_target_tank" } }, [
                     _vm._v("Tank")
                   ]),
@@ -38226,6 +38198,34 @@ var render = function() {
                     ],
                     2
                   )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "brew_amount" } }, [
+                    _vm._v("Amount")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.brew_tanks.amount,
+                        expression: "brew_tanks.amount"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", id: "brew_amount" },
+                    domProps: { value: _vm.brew_tanks.amount },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.brew_tanks, "amount", $event.target.value)
+                      }
+                    }
+                  })
                 ])
               ])
             ])
