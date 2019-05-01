@@ -13,7 +13,7 @@ composer install
 npm install
 ```
 
-### Compiles vue.js files
+### Compile vue.js files
 ```
 npm run dev
 ```
