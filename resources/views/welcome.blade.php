@@ -67,6 +67,7 @@
         </style>
     </head>
     <body>
+        <input type="hidden" id="base_url" value="{{ asset('/') }}">
         <div class="flex-center position-ref full-height">
             <div id="app">
                 <main-component></main-component>

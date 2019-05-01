@@ -18,7 +18,9 @@ class TankController extends Controller
         $tank = Tank::find($tank_id);
         $tank->increment('amount', $amount);
         $tank->save();
-        return response()->json($tank);
+        $tanks = Tank::all();
+
+        return response()->json($tanks);
     }
 
     public function move(Request $request){
@@ -34,12 +36,10 @@ class TankController extends Controller
         $target_tank = Tank::find($target_tank_id);
         $source_tank->decrement('amount', $amount);
         $target_tank->increment('amount', $amount);
-        $data = array(
-            'source_tank' => $source_tank,
-            'target_tank' => $target_tank
-        );
-        $tank->save();
-        return response()->json($data);
+        $target_tank->save();
+
+        $tanks = Tank::all();
+        return response()->json($tanks);
     }
 
     public function dump(Request $request){
@@ -53,7 +53,9 @@ class TankController extends Controller
         }
         $tank->decrement('amount', $amount);
         $tank->save();
-        return response()->json($tank);
+
+        $tanks = Tank::all();
+        return response()->json($tanks);
     }
 
     public function keg(Request $request){
@@ -67,6 +69,8 @@ class TankController extends Controller
         }
         $tank->decrement('amount', $amount);
         $tank->save();
-        return response()->json($tank);
+
+        $tanks = Tank::all();
+        return response()->json($tanks);
     }
 }
