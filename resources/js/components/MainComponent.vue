@@ -145,7 +145,7 @@
                         <div class="col-md-10">
                             <div class="form-group">
                                 <label for="brew_target_tank">Tank</label>
-                                <select name="brew_target_tank" id="dump" v-model="dump_tank.tank_id" class="form-control">
+                                <select name="brew_target_tank" id="dump" v-model="dump_tanks.tank_id" class="form-control">
                                     <option value="">Choose Source Tank...</option>
                                     <option v-for="(tank, i) in tanks"
                                     :key="i"
@@ -155,7 +155,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="brew_amount">Amount</label>
-                                <input type="number" id="dump_amount" v-model="dump_tank.amount" class="form-control">
+                                <input type="number" id="dump_amount" v-model="dump_tanks.amount" class="form-control">
                             </div>
 
                         </div>
@@ -194,7 +194,7 @@
                         <div class="col-md-10">
                             <div class="form-group">
                                 <label for="brew_target_tank">Tank</label>
-                                <select name="brew_target_tank" id="keg_tank" v-model="keg_tank.tank_id" class="form-control">
+                                <select name="brew_target_tank" id="keg_tank" v-model="keg_tanks.tank_id" class="form-control">
                                     <option value="">Choose Source Tank...</option>
                                     <option v-for="(tank, i) in tanks"
                                     :key="i"
@@ -204,7 +204,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="brew_amount">Amount</label>
-                                <input type="number" id="keg_tank_amount" v-model="keg_tank.amount" class="form-control">
+                                <input type="number" id="keg_tank_amount" v-model="keg_tanks.amount" class="form-control">
                             </div>
 
                         </div>
@@ -246,8 +246,8 @@ export default {
             tanks: [],
             brew_tanks: {},
             move_tanks: {},
-            dump_tank: {},
-            keg_tank: {},
+            dump_tanks: {},
+            keg_tanks: {},
             error: false
         }
     },
@@ -258,6 +258,8 @@ export default {
             this.axios.post(uri, this.brew_tanks).then((response) => {
                 this.tanks = response.data
                 $('#brew_modal').modal('hide')
+                this.brew_tanks.tank_id = null
+                this.brew_tanks.amount = null
             })
         },
         move() {
@@ -271,6 +273,9 @@ export default {
                 else {
                     this.tanks = response.data
                     $('#move_modal').modal('hide')
+                    this.move_tanks.source_tank_id = null
+                    this.move_tanks.target_tank_id = null
+                    this.move_tanks.amount = null
                 }
             })
         },
@@ -278,13 +283,15 @@ export default {
             this.error = false;
             let base_url = document.getElementById('base_url').value
             let uri = base_url+'api/dump'
-            this.axios.post(uri, this.dump_tank).then((response) => {
+            this.axios.post(uri, this.dump_tanks).then((response) => {
                 if(response.data == 'error') {
                     this.error = true;
                 }
                 else {
                     this.tanks = response.data
-                    $('#dump_modal').modal('hide');
+                    $('#dump_modal').modal('hide')
+                    this.dump_tanks.tank_id = null
+                    this.dump_tanks.amount = null
                 }
             })
         },
@@ -292,13 +299,15 @@ export default {
             this.error = false;
             let base_url = document.getElementById('base_url').value
             let uri = base_url+'api/keg'
-            this.axios.post(uri, this.keg_tank).then((response) => {
+            this.axios.post(uri, this.keg_tanks).then((response) => {
                 if(response.data == 'error') {
                     this.error = true;
                 }
                 else {
                     this.tanks = response.data
                     $('#keg_modal').modal('hide');
+                    this.keg_tanks.tank_id = null
+                    this.keg_tanks.amount = null
                 }
             })
         }
