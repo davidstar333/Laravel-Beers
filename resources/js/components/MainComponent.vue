@@ -257,6 +257,7 @@ export default {
             let uri = base_url+'api/brew'
             this.axios.post(uri, this.brew_tanks).then((response) => {
                 this.tanks = response.data
+                $('#brew_modal').modal('hide')
             })
         },
         move() {
@@ -269,6 +270,7 @@ export default {
                 }
                 else {
                     this.tanks = response.data
+                    $('#move_modal').modal('hide')
                 }
             })
         },
@@ -282,6 +284,7 @@ export default {
                 }
                 else {
                     this.tanks = response.data
+                    $('#dump_modal').modal('hide');
                 }
             })
         },
@@ -295,6 +298,7 @@ export default {
                 }
                 else {
                     this.tanks = response.data
+                    $('#keg_modal').modal('hide');
                 }
             })
         }

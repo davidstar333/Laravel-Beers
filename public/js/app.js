@@ -2023,6 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
       var uri = base_url + 'api/brew';
       this.axios.post(uri, this.brew_tanks).then(function (response) {
         _this2.tanks = response.data;
+        $('#brew_modal').modal('hide');
       });
     },
     move: function move() {
@@ -2036,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
           _this3.error = true;
         } else {
           _this3.tanks = response.data;
+          $('#move_modal').modal('hide');
         }
       });
     },
@@ -2050,6 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
           _this4.error = true;
         } else {
           _this4.tanks = response.data;
+          $('#dump_modal').modal('hide');
         }
       });
     },
@@ -2064,6 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
           _this5.error = true;
         } else {
           _this5.tanks = response.data;
+          $('#keg_modal').modal('hide');
         }
       });
     }
