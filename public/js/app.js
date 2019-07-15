@@ -2010,8 +2010,8 @@ __webpack_require__.r(__webpack_exports__);
       tanks: [],
       brew_tanks: {},
       move_tanks: {},
-      dump_tank: {},
-      keg_tank: {},
+      dump_tanks: {},
+      keg_tanks: {},
       error: false
     };
   },
@@ -2023,6 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
       var uri = base_url + 'api/brew';
       this.axios.post(uri, this.brew_tanks).then(function (response) {
         _this2.tanks = response.data;
+        $('#brew_modal').modal('hide');
+        _this2.brew_tanks.tank_id = null;
+        _this2.brew_tanks.amount = null;
       });
     },
     move: function move() {
@@ -2036,6 +2039,10 @@ __webpack_require__.r(__webpack_exports__);
           _this3.error = true;
         } else {
           _this3.tanks = response.data;
+          $('#move_modal').modal('hide');
+          _this3.move_tanks.source_tank_id = null;
+          _this3.move_tanks.target_tank_id = null;
+          _this3.move_tanks.amount = null;
         }
       });
     },
@@ -2045,11 +2052,14 @@ __webpack_require__.r(__webpack_exports__);
       this.error = false;
       var base_url = document.getElementById('base_url').value;
       var uri = base_url + 'api/dump';
-      this.axios.post(uri, this.dump_tank).then(function (response) {
+      this.axios.post(uri, this.dump_tanks).then(function (response) {
         if (response.data == 'error') {
           _this4.error = true;
         } else {
           _this4.tanks = response.data;
+          $('#dump_modal').modal('hide');
+          _this4.dump_tanks.tank_id = null;
+          _this4.dump_tanks.amount = null;
         }
       });
     },
@@ -2059,11 +2069,14 @@ __webpack_require__.r(__webpack_exports__);
       this.error = false;
       var base_url = document.getElementById('base_url').value;
       var uri = base_url + 'api/keg';
-      this.axios.post(uri, this.keg_tank).then(function (response) {
+      this.axios.post(uri, this.keg_tanks).then(function (response) {
         if (response.data == 'error') {
           _this5.error = true;
         } else {
           _this5.tanks = response.data;
+          $('#keg_modal').modal('hide');
+          _this5.keg_tanks.tank_id = null;
+          _this5.keg_tanks.amount = null;
         }
       });
     }
@@ -38461,8 +38474,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.dump_tank.tank_id,
-                          expression: "dump_tank.tank_id"
+                          value: _vm.dump_tanks.tank_id,
+                          expression: "dump_tanks.tank_id"
                         }
                       ],
                       staticClass: "form-control",
@@ -38478,7 +38491,7 @@ var render = function() {
                               return val
                             })
                           _vm.$set(
-                            _vm.dump_tank,
+                            _vm.dump_tanks,
                             "tank_id",
                             $event.target.multiple
                               ? $$selectedVal
@@ -38514,19 +38527,19 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.dump_tank.amount,
-                        expression: "dump_tank.amount"
+                        value: _vm.dump_tanks.amount,
+                        expression: "dump_tanks.amount"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: { type: "number", id: "dump_amount" },
-                    domProps: { value: _vm.dump_tank.amount },
+                    domProps: { value: _vm.dump_tanks.amount },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.dump_tank, "amount", $event.target.value)
+                        _vm.$set(_vm.dump_tanks, "amount", $event.target.value)
                       }
                     }
                   })
@@ -38584,8 +38597,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.keg_tank.tank_id,
-                          expression: "keg_tank.tank_id"
+                          value: _vm.keg_tanks.tank_id,
+                          expression: "keg_tanks.tank_id"
                         }
                       ],
                       staticClass: "form-control",
@@ -38601,7 +38614,7 @@ var render = function() {
                               return val
                             })
                           _vm.$set(
-                            _vm.keg_tank,
+                            _vm.keg_tanks,
                             "tank_id",
                             $event.target.multiple
                               ? $$selectedVal
@@ -38637,19 +38650,19 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.keg_tank.amount,
-                        expression: "keg_tank.amount"
+                        value: _vm.keg_tanks.amount,
+                        expression: "keg_tanks.amount"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: { type: "number", id: "keg_tank_amount" },
-                    domProps: { value: _vm.keg_tank.amount },
+                    domProps: { value: _vm.keg_tanks.amount },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.keg_tank, "amount", $event.target.value)
+                        _vm.$set(_vm.keg_tanks, "amount", $event.target.value)
                       }
                     }
                   })
